@@ -1,29 +1,20 @@
 #!/usr/bin/env python3
+"""
+    Function concatenates two 2D matrices along the specified axis.
+    """
+
+
 def cat_matrices2D(mat1, mat2, axis=0):
-    """Concatenate two 2D matrices along axis 0 (rows) or axis 1 (columns). Return None if not possible."""
+    """
+    Concatenates two 2D matrices along the specified axis.
+    """
     if axis == 0:
-        if len(mat1) == 0:
-            return [row[:] for row in mat2]
-        if len(mat2) == 0:
-            return [row[:] for row in mat1]
         if len(mat1[0]) != len(mat2[0]):
             return None
         return [row[:] for row in mat1] + [row[:] for row in mat2]
     elif axis == 1:
         if len(mat1) != len(mat2):
             return None
-        return [row1 + row2 for row1, row2 in zip(mat1, mat2)]
+        return [row1[:] + row2[:] for row1, row2 in zip(mat1, mat2)]
     else:
         return None
-mat1 = [[1, 2], [3, 4]]
-mat2 = [[5, 6]]
-mat3 = [[7], [8]]
-mat4 = cat_matrices2D(mat1, mat2)
-mat5 = cat_matrices2D(mat1, mat3, axis=1)
-print(mat4)
-print(mat5)
-mat1[0] = [9, 10]
-mat1[1].append(5)
-print(mat1)
-print(mat4)
-print(mat5)
