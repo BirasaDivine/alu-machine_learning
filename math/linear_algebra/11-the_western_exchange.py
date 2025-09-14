@@ -1,4 +1,16 @@
 #!/usr/bin/env python3
-import numpy as np
+"""
+Calculate transpose of a matrix
+"""
+
+
 def np_transpose(matrix):
-    return np.array(matrix).T
+    """Returns a transpose of a matrix
+
+    Args:
+        matrix (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+    return matrix.transpose()
